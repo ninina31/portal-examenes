@@ -15,7 +15,8 @@ CREATE TABLE Manager(
   password VARCHAR(255) NOT NULL,
   id_account INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_account) REFERENCES Account(id)
 );
 
 CREATE TABLE Test(
@@ -28,7 +29,8 @@ CREATE TABLE Test(
   is_active BIT NOT NULL DEFAULT 0,
   is_autocorrect BIT NOT NULL DEFAULT 0,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_manager) REFERENCES Manager(id)
 );
 
 CREATE TABLE Reviewer(
@@ -39,15 +41,18 @@ CREATE TABLE Reviewer(
   password VARCHAR(255) NOT NULL,
   id_account INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_account) REFERENCES Account(id)
 );
 
 CREATE TABLE Reviewer_Test(
   id INT AUTO_INCREMENT NOT NULL,
-  idReviewer INT NOT NULL,
-  idTest INT NOT NULL,
+  id_reviewer INT NOT NULL,
+  id_test INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_reviewer) REFERENCES Reviewer(id),
+  FOREIGN KEY (id_test) REFERENCES Test(id_test)
 );
 
 CREATE TABLE Question_Type(
@@ -65,7 +70,9 @@ CREATE TABLE Question(
   description VARCHAR(256) NOT NULL,
   score DOUBLE(5,2) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_type) REFERENCES Question_Type(id),
+  FOREIGN KEY (id_test) REFERENCES Test(id_test)
 );
 
 CREATE TABLE Proposed_Answer(
@@ -74,7 +81,8 @@ CREATE TABLE Proposed_Answer(
   answer VARCHAR(128) NOT NULL,
   file BLOB,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_question) REFERENCES Question(id)
 );
 
 CREATE TABLE Correct_Answer(
@@ -83,7 +91,9 @@ CREATE TABLE Correct_Answer(
   id_proposed_answer INT NOT NULL,
   score DOUBLE(5,2) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_question) REFERENCES Question(id),
+  FOREIGN KEY (id_proposed_answer) REFERENCES Proposed_Answer(id)
 );
 
 CREATE TABLE Candidate(
@@ -102,7 +112,9 @@ CREATE TABLE Candidate_Test(
   expiration_date DATETIME NOT NULL,
   submitted_date DATETIME NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_test) REFERENCES Test(id_test),
+  FOREIGN KEY (id_candidate) REFERENCES Candidate(id)
 );
 
 CREATE TABLE Candidate_Question_Answer(
@@ -113,5 +125,8 @@ CREATE TABLE Candidate_Question_Answer(
   file BLOB,
   score DOUBLE(5,2) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_question) REFERENCES Question(id),
+  FOREIGN KEY (id_candidate) REFERENCES Candidate(id),
+  FOREIGN KEY (id_proposed_answer) REFERENCES Proposed_Answer(id)
 );
