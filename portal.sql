@@ -29,7 +29,7 @@ CREATE TABLE Test(
   is_active BIT NOT NULL DEFAULT 0,
   is_autocorrect BIT NOT NULL DEFAULT 0,
   created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (id),
+  PRIMARY KEY (id_test),
   FOREIGN KEY (id_manager) REFERENCES Manager(id)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE Reviewer(
 CREATE TABLE Reviewer_Test(
   id INT AUTO_INCREMENT NOT NULL,
   id_reviewer INT NOT NULL,
-  id_test INT NOT NULL,
+  id_test VARCHAR(32) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
   PRIMARY KEY (id),
   FOREIGN KEY (id_reviewer) REFERENCES Reviewer(id),
