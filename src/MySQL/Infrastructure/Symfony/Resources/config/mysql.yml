@@ -1,0 +1,33 @@
+services:
+    mysql:
+        alias: mysql.mysql_simple
+
+    mysql.mysql_simple:
+        class: MySQL\Domain\MySQLSimple
+        arguments:
+            - @mysql.query_handler_resolver
+        public: false
+
+    mysql.query_handler_resolver:
+        class: MySQL\Domain\Handler\Resolver\NameBasedQueryHandlerResolver
+        arguments:
+            - @mysql.class_based_query_name_resolver
+            - @mysql.query_handler_map
+        public: false
+
+    mysql.class_based_query_name_resolver:
+        class: MySQL\Domain\Name\ClassBasedNameResolver
+        public: false
+
+    mysql.query_handler_map:
+        class: MySQL\Domain\Handler\Map\LazyLoadingQueryHandlerMap
+        arguments:
+            - []
+            - @mysql.invokable_service_locator
+        public: false
+
+    mysql.invokable_service_locator:
+        class: SimpleBus\SymfonyBridge\DependencyInjection\InvokableServiceLocator
+        arguments:
+            - @service_container
+        public: false

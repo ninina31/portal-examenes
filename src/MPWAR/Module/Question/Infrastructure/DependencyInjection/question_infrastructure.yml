@@ -1,0 +1,12 @@
+services:
+
+  mpwar.question.infrastructure.question_repository:
+    alias: mpwar.question.infrastructure.question_repository.mysql
+
+  mpwar.question.infrastructure.question_repository.in_memory:
+    class: MPWAR\Module\Question\Infrastructure\Persistence\QuestionRepositoryInMemory
+
+  mpwar.question.infrastructure.question_repository.mysql:
+    class: MPWAR\Module\Question\Infrastructure\Persistence\QuestionRepositoryMySQL
+    arguments:
+      - @doctrine.orm.entity_manager
