@@ -5,7 +5,7 @@ services:
   mpwar.question.command_handler.question_registration:
     class: MPWAR\Module\Question\Application\CommandHandler\QuestionRegistrationCommandHandler
     arguments:
-      - @mpwar.question.service.question_registrar
+      - @mpwar.question.service.question_register
     tags:
       - { name: command_handler, handles: MPWAR\Module\Question\Contract\Command\QuestionRegistration }
 

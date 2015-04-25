@@ -1,0 +1,3 @@
+imports:
+  - { resource: "question_type_services.yml" }
+  - { resource: "question_type_infrastructure.yml" }

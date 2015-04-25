@@ -1,8 +1,8 @@
 MPWAR\Module\Question\Domain\QuestionDescription:
   type: embeddable
 
-  id:
+  fields:
     value:
       type: string
-      length: 36
-      column: id
+      length: 255
+      column: description

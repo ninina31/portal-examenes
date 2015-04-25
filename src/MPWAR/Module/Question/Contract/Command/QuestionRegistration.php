@@ -16,14 +16,17 @@ final class QuestionRegistration implements Command
         $this->type = $type;
         $this->exam_id = $exam_id;
     }
+
     public function description()
     {
         return $this->description;
     }
+
     public function type()
     {
         return $this->type;
     }
+    
     public function examId()
     {
         return $this->exam_id;

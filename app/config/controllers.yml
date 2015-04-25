@@ -1,0 +1,6 @@
+services:
+
+  mpwar.controller.question.get:
+    class: MPWAR\Api\Controller\Question\QuestionGetController
+    arguments:
+      - @mysql

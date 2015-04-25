@@ -3,7 +3,7 @@
 namespace MPWAR\Module\Question\Domain;
 
 use DateTimeImmutable;
-use MPWAR\Module\Question\Contract\DomainEvent\QuestionCreated;
+use MPWAR\Module\Question\Contract\DomainEvent\QuestionRegistered;
 use SimpleBus\Message\Recorder\PrivateMessageRecorderCapabilities;
 use SimpleBus\Message\Recorder\RecordsMessages;
 
@@ -47,7 +47,7 @@ final class Question implements RecordsMessages
     public static function register(QuestionDescription $description, QuestionType $type,QuestionExamId $exam_id)
     {
         $question = new Question($description, $type, $exam_id);
-        $question->record(new QuestionCreated($description->value(), $question->createdAt(), $type->value()));
+        $question->record(new QuestionRegistered($description->value(), $question->createdAt(), $type->value()));
         return $question;
     }
 }

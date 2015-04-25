@@ -1,0 +1,8 @@
+MPWAR\Module\QuestionType\Domain\QuestionTypeDescription:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      length: 128
+      column: type

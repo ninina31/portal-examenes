@@ -1,0 +1,19 @@
+MPWAR\Module\QuestionType\Domain\QuestionType:
+  type:  entity
+  table: Question_Type
+
+  fields:
+    registrationDate:
+      type: datetime
+      column: created_at
+
+  embedded:
+    id:
+      class: MPWAR\Module\QuestionType\Domain\QuestionTypeId
+      columnPrefix: false
+    description:
+      class: MPWAR\Module\QuestionType\Domain\QuestionTypeDescription
+      columnPrefix: false
+    type:
+      class: MPWAR\Module\QuestionType\Domain\QuestionTypeAutocorrect
+      columnPrefix: false

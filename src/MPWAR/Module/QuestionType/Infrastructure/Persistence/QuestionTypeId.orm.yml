@@ -1,0 +1,9 @@
+MPWAR\Module\QuestionType\Domain\QuestionTypeId:
+  type: embeddable
+
+  fields:
+    value:
+      type: integer
+      autoincrement: true
+      primary: true
+      column: id

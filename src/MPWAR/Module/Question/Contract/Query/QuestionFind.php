@@ -12,6 +12,7 @@ final class QuestionFind implements Query
     {
         $this->questionId = $questionId;
     }
+    
     public function questionId()
     {
         return $this->questionId;
