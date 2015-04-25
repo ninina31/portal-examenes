@@ -1,2 +1,17 @@
+<<<<<<< HEAD
 vendor/
 
+=======
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/app/phpunit.xml
+/build/
+/vendor/
+/bin/
+/composer.phar
+>>>>>>> 22cedf2c096693a1d3353ba2e0f8dc7042f0a0b2

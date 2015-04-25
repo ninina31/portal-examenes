@@ -1,0 +1,35 @@
+services:
+
+  # Command Handlers
+
+  mpwar.question_type.command_handler.question_type_registration:
+    class: MPWAR\Module\QuestionType\Application\CommandHandler\QuestionTypeRegistrationCommandHandler
+    arguments:
+      - @mpwar.question_type.service.question_register
+    tags:
+      - { name: command_handler, handles: MPWAR\Module\QuestionType\Contract\Command\QuestionTypeRegistration }
+
+  # Query Handlers
+
+  mpwar.question_type.query_handler.question_type_find:
+    class: MPWAR\Module\QuestionType\Application\QueryHandler\QuestionTypeFindQueryHandler
+    arguments:
+      - @mpwar.question_type.service.question_finder
+    tags:
+      - { name: query_handler, handles: MPWAR\Module\QuestionType\Contract\Query\QuestionTypeFind }
+
+
+  # Services
+
+  mpwar.question_type.service.question_type_registrar:
+    class: MPWAR\Module\QuestionType\Application\Service\QuestionTypeRegistrar
+    arguments:
+      - @mpwar.question_type.infrastructure.question_repository
+      - @event_bus
+    public: false
+
+  mpwar.question_type.service.question_type_finder:
+    class: MPWAR\Module\QuestionType\Application\Service\QuestionTypeFinder
+    arguments:
+      - @mpwar.question_type.infrastructure.question_repository
+    public: false

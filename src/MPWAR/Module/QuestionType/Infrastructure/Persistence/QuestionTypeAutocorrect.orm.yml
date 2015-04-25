@@ -1,0 +1,8 @@
+MPWAR\Module\QuestionType\Domain\QuestionTypeAutocorrect:
+  type: embeddable
+
+  fields:
+    value:
+      type: bit
+      length: 1
+      column: is_autocorrect
