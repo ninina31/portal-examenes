@@ -1,8 +1,8 @@
 <?php
 
-namespace  MySQL\Domain;
+namespace MySQL\Domain;
 
-interface  MySQL
+interface MySQL
 {
     /**
      * @param Query $query

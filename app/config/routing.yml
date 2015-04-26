@@ -1,7 +1,3 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
 question_get:
   path:     /questions
   defaults: { _controller: mpwar.controller.question.get:__invoke }

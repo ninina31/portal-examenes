@@ -7,7 +7,7 @@ use MPWAR\Module\QuestionType\Domain\QuestionType;
 use MPWAR\Module\QuestionType\Domain\QuestionTypeId;
 use MPWAR\Module\QuestionType\Domain\QuestionTypeRepository;
 
-final class QuestionTypeRepositoryMySql implements QuestionTypeRepository
+final class QuestionTypeRepositoryInMySQL implements QuestionTypeRepository
 {
     private $entityManager;
 

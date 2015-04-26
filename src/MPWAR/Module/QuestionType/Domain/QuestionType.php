@@ -9,17 +9,24 @@ use SimpleBus\Message\Recorder\RecordsMessages;
 
 final class QuestionType implements RecordsMessages
 {
+    private $id;
     private $description;
     private $autocorrect;
-    private $createdAt;
+    private $registrationDate;
 
     use PrivateMessageRecorderCapabilities;
 
-    public function __construct(QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect, DateTimeImmutable $createdAt = null)
+    public function __construct(QuestionTypeId $id,QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect, DateTimeImmutable $registrationDate = null)
     {
+        $this->id               = $id;
         $this->description      = $description;
         $this->autocorrect      = $autocorrect;
-        $this->createdAt = $createdAt ?: new DateTimeImmutable();
+        $this->registrationDate = $registrationDate ?: new DateTimeImmutable();
+    }
+
+    public function id()
+    {
+        return $this->id;
     }
 
     public function description()
@@ -32,15 +39,15 @@ final class QuestionType implements RecordsMessages
         return $this->autocorrect;
     }
 
-    public function createdAt()
+    public function registrationDate()
     {
-        return $this->createdAt;
+        return $this->registrationDate;
     }
 
     public static function register(QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect)
     {
         $questionType = new QuestionType($description, $autocorrect);
-        $questionType->record(new QuestionTypeRegistered($description->value(), $questionType->createdAt(), $autocorrect->value()));
+        $questionType->record(new QuestionTypeRegistered($description->value(), $questionType->registrationDate(), $autocorrect->value()));
         return $questionType;
     }
 }

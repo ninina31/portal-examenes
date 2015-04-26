@@ -1,6 +1,6 @@
 <?php
 
-namespace MPWAR\Api\Controller\QuestionType;
+namespace MPWAR\Api\Controller\Question;
 
 use FOS\RestBundle\View\View;
 use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
@@ -8,7 +8,7 @@ use MPWAR\Module\QuestionType\Contract\Query\QuestionTypeFind;
 use MySQL\Domain\MySQL;
 use Symfony\Component\HttpFoundation\Response;
 
-final class QuestionTypeGetController
+final class QuestionGetController
 {
     private $mysql;
 
@@ -17,7 +17,7 @@ final class QuestionTypeGetController
         $this->mysql = $mysql;
     }
 
-    public function __invoke($playerId)
+    public function __invoke()
     {
         $query = new QuestionTypeFind();
 

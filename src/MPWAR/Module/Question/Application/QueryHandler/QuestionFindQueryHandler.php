@@ -7,8 +7,8 @@ use MPWAR\Module\Question\Contract\Exception\QuestionNotValidException;
 use MPWAR\Module\Question\Contract\Query\QuestionFind;
 use MPWAR\Module\Question\Contract\Response\QuestionResponse;
 use MPWAR\Module\Question\Domain\QuestionId;
-use Oracle\Domain\Handler\QueryHandler;
-use Oracle\Domain\Query;
+use MySQL\Domain\Handler\QueryHandler;
+use MySQL\Domain\Query;
 
 final class QuestionFindQueryHandler implements QueryHandler
 {

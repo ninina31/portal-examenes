@@ -7,6 +7,6 @@ services:
     class: MPWAR\Module\QuestionType\Infrastructure\Persistence\QuestionTypeRepositoryInMemory
 
   mpwar.question_type.infrastructure.question_type_repository.mysql:
-    class: MPWAR\Module\QuestionType\Infrastructure\Persistence\QuestionTypeRepositoryMySQL
+    class: MPWAR\Module\QuestionType\Infrastructure\Persistence\QuestionTypeRepositoryInMySQL
     arguments:
       - @doctrine.orm.entity_manager

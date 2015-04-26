@@ -1,5 +1,22 @@
 <?php
 
+use Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle;
+use Bazinga\Bundle\RestExtraBundle\BazingaRestExtraBundle;
+use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use FOS\RestBundle\FOSRestBundle;
+use Hautelook\TemplatedUriBundle\HautelookTemplatedUriBundle;
+use JMS\SerializerBundle\JMSSerializerBundle;
+use MPWAR\Infrastructure\Symfony\Bundle\MPWARBundle;
+use MySQL\Infrastructure\Symfony\MySQLBundle;
+use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
+use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
+use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
+use SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle;
+use SimpleBus\SymfonyBridge\SimpleBusEventBusBundle;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\MonologBundle\MonologBundle;
+use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -7,30 +24,42 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $bundles = array(
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
-            new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
-        );
+        $bundles = [
+            new FrameworkBundle(),
+            new SensioFrameworkExtraBundle(),
+            new TwigBundle(),
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
-            $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-            $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            new MonologBundle(),
+            new DoctrineBundle(),
+
+            new FOSRestBundle(),
+            new JMSSerializerBundle(),
+            new BazingaHateoasBundle(),
+            new HautelookTemplatedUriBundle(),
+            new BazingaRestExtraBundle(),
+
+            new MPWARBundle(),
+            new SimpleBusCommandBusBundle(),
+            new SimpleBusEventBusBundle(),
+            new MySQLBundle(),
+        ];
+
+        if (in_array($this->getEnvironment(), ['dev', 'test'])) {
+            $bundles[] = new WebProfilerBundle();
+            $bundles[] = new SensioDistributionBundle();
+            $bundles[] = new SensioGeneratorBundle();
         }
 
         return $bundles;
     }
 
+    public function init() {
+        date_default_timezone_set( 'Europe/Madrid' );
+        parent::init();
+    }
+
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
 }

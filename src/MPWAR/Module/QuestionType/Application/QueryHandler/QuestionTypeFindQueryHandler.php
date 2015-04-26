@@ -6,8 +6,8 @@ use MPWAR\Module\QuestionType\Application\Service\QuestionTypeFinder;
 use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
 use MPWAR\Module\QuestionType\Contract\Query\QuestionTypeFind;
 use MPWAR\Module\QuestionType\Contract\Response\QuestionTypeResponse;
-use Oracle\Domain\Handler\QueryHandler;
-use Oracle\Domain\Query;
+use MySQL\Domain\Handler\QueryHandler;
+use MySQL\Domain\Query;
 
 final class QuestionTypeFindQueryHandler implements QueryHandler
 {

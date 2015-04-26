@@ -1,9 +1,9 @@
 <?php
 
-namespace Oracle\Domain\Handler\Resolver;
+namespace MySQL\Domain\Handler\Resolver;
 
-use Oracle\Domain\Handler\QueryHandler;
-use Oracle\Domain\Query;
+use MySQL\Domain\Handler\QueryHandler;
+use MySQL\Domain\Query;
 
 interface QueryHandlerResolver
 {
