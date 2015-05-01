@@ -21,8 +21,8 @@ services:
 
   # Services
 
-  mpwar.question_type.service.question_type_registrar:
-    class: MPWAR\Module\QuestionType\Application\Service\QuestionTypeRegistrar
+  mpwar.question_type.service.question_type_register:
+    class: MPWAR\Module\QuestionType\Application\Service\QuestionTypeRegister
     arguments:
       - @mpwar.question_type.infrastructure.question_repository
       - @event_bus

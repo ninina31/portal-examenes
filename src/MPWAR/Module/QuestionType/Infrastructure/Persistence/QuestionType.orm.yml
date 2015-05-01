@@ -14,6 +14,6 @@ MPWAR\Module\QuestionType\Domain\QuestionType:
     description:
       class: MPWAR\Module\QuestionType\Domain\QuestionTypeDescription
       columnPrefix: false
-    type:
+    autocorrect:
       class: MPWAR\Module\QuestionType\Domain\QuestionTypeAutocorrect
       columnPrefix: false
