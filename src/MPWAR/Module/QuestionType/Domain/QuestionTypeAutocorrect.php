@@ -21,13 +21,8 @@ final class QuestionTypeAutocorrect
 
     private function guard($value)
     {
-        if (empty($value) || !is_numeric($value) || !($this->isValidValue($value))) {
+        if (empty($value) || !is_bool($value)) {
             throw new QuestionTypeNotValidException($value);
         }
-    }
-
-    private function isValidValue($value)
-    {
-        return in_array($value, array(0, 1));
     }
 }

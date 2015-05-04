@@ -9,12 +9,12 @@ final class QuestionTypeRegistered implements Event
 {
     private $aggregateId;
     private $occurredOn;
-    private $name;
-    public function __construct($aggregateId, DateTimeImmutable $occurredOn, $name)
+    private $type;
+    
+    public function __construct(DateTimeImmutable $occurredOn, $type)
     {
-        $this->aggregateId = $aggregateId;
         $this->occurredOn  = $occurredOn;
-        $this->name        = $name;
+        $this->type        = $type;
     }
     public function aggregateId()
     {
@@ -24,8 +24,8 @@ final class QuestionTypeRegistered implements Event
     {
         return $this->occurredOn;
     }
-    public function name()
+    public function type()
     {
-        return $this->name;
+        return $this->type;
     }
 }

@@ -7,15 +7,15 @@ use MySQL\Domain\Response;
 
 final class QuestionTypeResponse implements Response
 {
-    private $array;
+    private $result;
 
-    public function __construct($array)
+    public function __construct($result)
     {
-        $this->array      = $array;
+        $this->result      = $result;
     }
 
-    public function array()
+    public function result()
     {
-        return $this->array;
+        return $this->result;
     }
 }

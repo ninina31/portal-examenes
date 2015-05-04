@@ -65,9 +65,9 @@ jms_serializer:
             options: JSON_PRETTY_PRINT
     metadata:
         directories:
-            player:
-                namespace_prefix: "MPWAR\\Module\\Player\\Contract\\Response"
-                path: %kernel.root_dir%/Resources/serializer/player
+            question_type:
+                namespace_prefix: "MPWAR\\Module\\QuestionType\\Contract\\Response"
+                path: %kernel.root_dir%/Resources/serializer/question_type
 
 parameters:
    jms_serializer.datetime_handler.class: MPWAR\Api\Infrastructure\JMSSerializer\DateTimeHandler

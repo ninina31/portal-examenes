@@ -2,3 +2,8 @@ question_get:
   path:     /questions
   defaults: { _controller: mpwar.controller.question.get:__invoke }
   methods:  [GET]
+
+question_post:
+  path:     /insert_question
+  defaults: { _controller: mpwar.controller.question.post:__invoke }
+  methods:  [POST, GET]

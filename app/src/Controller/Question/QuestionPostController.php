@@ -1,9 +1,10 @@
 <?php
+
 namespace MPWAR\Api\Controller\Question;
 
 use FOS\RestBundle\View\View;
-use MPWAR\Module\Player\Contract\Command\QuestionRegistration;
-# use MPWAR\Module\Player\Contract\Exception\PlayerNameNotValidException;
+use MPWAR\Module\QuestionType\Contract\Command\QuestionTypeRegistration;
+use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,28 +12,32 @@ use Symfony\Component\HttpFoundation\Response;
 final class QuestionPostController
 {
     private $commandBus;
+
     public function __construct(MessageBus $commandBus)
     {
         $this->commandBus = $commandBus;
     }
+
     public function __invoke(Request $request)
     {
-        $description   = $request->request->get('description');
-        $type = $request->request->get('type');
-        $exam_id = $request->request->get('exam_id');
-        $command  = new QuestionRegistration($description, $type, $exam_id);
+        $description   = 'seleccion_simple';
+        $autocorrect   = true;
+
+        $command  = new QuestionTypeRegistration($description, $autocorrect);
         $response = View::create(null, Response::HTTP_CREATED);
-        # try {
-        $this->commandBus->handle($command);
-        #} catch (PlayerIdNotValidException $exception) {
-        /*    $response = View::create(
+
+        try {
+            $this->commandBus->handle($command);
+        } catch (QuestionTypeNotValidException $exception) {
+            $response = View::create(
                 [
                     'code'    => $exception->getCode(),
                     'message' => $exception->getMessage(),
                 ],
                 Response::HTTP_BAD_REQUEST
             );
-        }*/
+        }
+
         return $response;
     }
 }

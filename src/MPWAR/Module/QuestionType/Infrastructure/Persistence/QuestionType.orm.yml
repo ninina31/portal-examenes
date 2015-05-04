@@ -3,6 +3,8 @@ MPWAR\Module\QuestionType\Domain\QuestionType:
   table: Question_Type
   id:
     id:
+      generator:
+          strategy: AUTO
       class: MPWAR\Module\QuestionType\Domain\QuestionTypeId
       columnPrefix: false
 
@@ -15,6 +17,6 @@ MPWAR\Module\QuestionType\Domain\QuestionType:
     description:
       class: MPWAR\Module\QuestionType\Domain\QuestionTypeDescription
       columnPrefix: false
-    type:
+    autocorrect:
       class: MPWAR\Module\QuestionType\Domain\QuestionTypeAutocorrect
       columnPrefix: false

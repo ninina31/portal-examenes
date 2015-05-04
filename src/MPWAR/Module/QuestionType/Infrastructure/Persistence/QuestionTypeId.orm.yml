@@ -4,6 +4,4 @@ MPWAR\Module\QuestionType\Domain\QuestionTypeId:
   fields:
     value:
       type: integer
-      autoincrement: true
-      primary: true
       column: id

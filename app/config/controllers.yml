@@ -4,3 +4,8 @@ services:
     class: MPWAR\Api\Controller\Question\QuestionGetController
     arguments:
       - @mysql
+
+  mpwar.controller.question.post:
+    class: MPWAR\Api\Controller\Question\QuestionPostController
+    arguments:
+      - @command_bus

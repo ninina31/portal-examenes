@@ -20,7 +20,7 @@ final class QuestionTypeFinder
     {
         $questionType = $this->repository->search();
 
-        $response = new QuestionTypeResponse($questionType->array());
+        $response = new QuestionTypeResponse($questionType);
 
         return $response;
     }
