@@ -41,7 +41,7 @@ doctrine:
         entity_managers:
             default:
               mappings:
-                Question_Type:
+                question_type:
                   type: yml
                   dir: %kernel.root_dir%/../src/MPWAR/Module/QuestionType/Infrastructure/Persistence
                   prefix: MPWAR\Module\QuestionType\Domain

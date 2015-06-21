@@ -20,10 +20,11 @@ final class QuestionPostController
 
     public function __invoke(Request $request)
     {
+        $id            = 1;
         $description   = 'seleccion_simple';
         $autocorrect   = true;
 
-        $command  = new QuestionTypeRegistration($description, $autocorrect);
+        $command  = new QuestionTypeRegistration($id, $description, $autocorrect);
         $response = View::create(null, Response::HTTP_CREATED);
 
         try {

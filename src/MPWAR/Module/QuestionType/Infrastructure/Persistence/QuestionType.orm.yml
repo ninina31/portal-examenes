@@ -1,12 +1,6 @@
 MPWAR\Module\QuestionType\Domain\QuestionType:
   type:  entity
-  table: Question_Type
-  id:
-    id:
-      generator:
-          strategy: AUTO
-      class: MPWAR\Module\QuestionType\Domain\QuestionTypeId
-      columnPrefix: false
+  table: question_type
 
   fields:
     registrationDate:
@@ -14,6 +8,9 @@ MPWAR\Module\QuestionType\Domain\QuestionType:
       column: created_at
 
   embedded:
+    id:
+      class: MPWAR\Module\QuestionType\Domain\QuestionTypeId
+      columnPrefix: false
     description:
       class: MPWAR\Module\QuestionType\Domain\QuestionTypeDescription
       columnPrefix: false

@@ -11,6 +11,7 @@ final class QuestionTypeAutocorrect
     public function __construct($value)
     {
         $this->guard($value);
+        
         $this->value = $value;
     }
 

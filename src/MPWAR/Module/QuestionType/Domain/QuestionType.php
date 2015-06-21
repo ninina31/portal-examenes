@@ -16,8 +16,9 @@ final class QuestionType implements RecordsMessages
 
     use PrivateMessageRecorderCapabilities;
 
-    public function __construct(QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect, DateTimeImmutable $registrationDate = null)
+    public function __construct(QuestionTypeId $id, QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect, DateTimeImmutable $registrationDate = null)
     {
+        $this->id               = $id;
         $this->description      = $description;
         $this->autocorrect      = $autocorrect;
         $this->registrationDate = $registrationDate ?: new DateTimeImmutable();
@@ -43,9 +44,9 @@ final class QuestionType implements RecordsMessages
         return $this->registrationDate;
     }
 
-    public static function register(QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect)
+    public static function register(QuestionTypeId $id, QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect)
     {
-        $questionType = new QuestionType($description, $autocorrect);
+        $questionType = new QuestionType($id, $description, $autocorrect);
         $questionType->record(new QuestionTypeRegistered($questionType->registrationDate(), $description->value()));
         return $questionType;
     }

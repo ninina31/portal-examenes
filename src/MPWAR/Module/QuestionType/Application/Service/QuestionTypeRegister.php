@@ -5,6 +5,7 @@ namespace MPWAR\Module\QuestionType\Application\Service;
 use iter;
 use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
 use MPWAR\Module\QuestionType\Domain\QuestionType;
+use MPWAR\Module\QuestionType\Domain\QuestionTypeId;
 use MPWAR\Module\QuestionType\Domain\QuestionTypeDescription;
 use MPWAR\Module\QuestionType\Domain\QuestionTypeAutocorrect;
 use MPWAR\Module\QuestionType\Domain\QuestionTypeRepository;
@@ -22,11 +23,11 @@ final class QuestionTypeRegister
         $this->eventBus   = $eventBus;
     }
 
-    public function __invoke(QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect)
+    public function __invoke(QuestionTypeId $id, QuestionTypeDescription $description, QuestionTypeAutocorrect $autocorrect)
     {
         // $this->guardQuestionParameters($description, $autocorrect, $exam_id);
 
-        $questiontype = QuestionType::register($description, $autocorrect);
+        $questiontype = QuestionType::register($id, $description, $autocorrect);
 
         $this->repository->add($questiontype);
 

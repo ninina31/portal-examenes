@@ -2,7 +2,6 @@
 
 namespace MPWAR\Module\QuestionType\Contract\Response;
 
-use DateTimeImmutable;
 use MySQL\Domain\Response;
 
 final class QuestionTypeResponse implements Response

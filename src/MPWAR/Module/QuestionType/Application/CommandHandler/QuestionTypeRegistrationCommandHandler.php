@@ -28,8 +28,9 @@ final class QuestionTypeRegistrationCommandHandler implements MessageHandler
      */
     public function handle(Message $message)
     {
+        $id = new QuestionTypeId($message->id());
         $description = new QuestionTypeDescription($message->description());
         $autocorrect = new QuestionTypeAutocorrect($message->autocorrect());
-        $this->register->__invoke($description, $autocorrect);
+        $this->register->__invoke($id, $description, $autocorrect);
     }
 }

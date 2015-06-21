@@ -1,7 +1,6 @@
 MPWAR\Module\QuestionType\Domain\QuestionTypeId:
   type: embeddable
-
-  fields:
+  id:
     value:
       type: integer
       column: id

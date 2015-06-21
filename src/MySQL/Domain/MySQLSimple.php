@@ -7,6 +7,7 @@ use SimpleBus\Message\Bus;
 class MySQLSimple implements MySQL
 {
     private $queryHandlerResolver;
+    
     public function __construct(QueryHandlerResolver $queryHandlerResolver)
     {
         $this->queryHandlerResolver = $queryHandlerResolver;

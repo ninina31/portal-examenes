@@ -3,6 +3,5 @@ MPWAR\Module\QuestionType\Domain\QuestionTypeAutocorrect:
 
   fields:
     value:
-      type: bit
-      length: 1
+      type: boolean
       column: is_autocorrect

@@ -6,13 +6,20 @@ use SimpleBus\Message\Type\Command;
 
 final class QuestionTypeRegistration implements Command
 {
+    private $id;
     private $description;
     private $autocorrect;
 
-    public function __construct($description, $autocorrect)
+    public function __construct($id, $description, $autocorrect)
     {
-        $this->description   = $description;
+        $this->id          = $id;
+        $this->description = $description;
         $this->autocorrect = $autocorrect;
+    }
+
+    public function id()
+    {
+        return $this->id;
     }
 
     public function description()
