@@ -1,0 +1,8 @@
+MPWAR\Module\User\Domain\UserName:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      length: 128
+      column: name

@@ -1,0 +1,35 @@
+services:
+
+  # Command Handlers
+
+  mpwar.user.command_handler.user_registration:
+    class: MPWAR\Module\User\Application\CommandHandler\UserRegistrationCommandHandler
+    arguments:
+      - @mpwar.user.service.user_register
+    tags:
+      - { name: command_handler, handles: MPWAR\Module\User\Contract\Command\UserRegistration }
+
+  # Query Handlers
+
+  mpwar.user.query_handler.user_find:
+    class: MPWAR\Module\User\Application\QueryHandler\UserFindQueryHandler
+    arguments:
+      - @mpwar.user.service.user_finder
+    tags:
+      - { name: query_handler, handles: MPWAR\Module\User\Contract\Query\UserFind }
+
+
+  # Services
+
+  mpwar.user.service.user_register:
+    class: MPWAR\Module\User\Application\Service\UserRegister
+    arguments:
+      - @mpwar.user.infrastructure.user_repository
+      - @event_bus
+    public: false
+
+  mpwar.user.service.user_finder:
+    class: MPWAR\Module\User\Application\Service\UserFinder
+    arguments:
+      - @mpwar.user.infrastructure.user_repository
+    public: false

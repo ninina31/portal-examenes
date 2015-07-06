@@ -59,15 +59,15 @@ fos_rest:
   serializer:
     serialize_null: true
 
-jms_serializer:
-    visitors:
-        json:
-            options: JSON_PRETTY_PRINT
-    metadata:
-        directories:
-            question_type:
-                namespace_prefix: "MPWAR\\Module\\QuestionType\\Contract\\Response"
-                path: %kernel.root_dir%/Resources/serializer/question_type
+# jms_serializer:
+#     visitors:
+#         json:
+#             options: JSON_PRETTY_PRINT
+#     metadata:
+#         directories:
+#             question_type:
+#                 namespace_prefix: "MPWAR\\Module\\QuestionType\\Contract\\Response"
+#                 path: %kernel.root_dir%/Resources/serializer/question_type
 
 parameters:
    jms_serializer.datetime_handler.class: MPWAR\Api\Infrastructure\JMSSerializer\DateTimeHandler

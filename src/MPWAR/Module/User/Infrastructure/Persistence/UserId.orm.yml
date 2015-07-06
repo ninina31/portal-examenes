@@ -1,0 +1,6 @@
+MPWAR\Module\User\Domain\UserId:
+  type: embeddable
+  id:
+    value:
+      type: integer
+      column: id

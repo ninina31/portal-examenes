@@ -1,0 +1,25 @@
+MPWAR\Module\User\Domain\User:
+  type:  entity
+  table: user
+
+  fields:
+    registrationDate:
+      type: datetime
+      column: created_at
+
+  embedded:
+    id:
+      class: MPWAR\Module\User\Domain\UserId
+      columnPrefix: false
+    name:
+      class: MPWAR\Module\User\Domain\UserName
+      columnPrefix: false
+    lastname:
+      class: MPWAR\Module\User\Domain\UserLastName
+      columnPrefix: false
+    email:
+      class: MPWAR\Module\User\Domain\UserEmail
+      columnPrefix: false
+    password:
+      class: MPWAR\Module\User\Domain\UserPassword
+      columnPrefix: false

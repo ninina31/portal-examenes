@@ -1,0 +1,8 @@
+MPWAR\Module\User\Domain\UserEmail:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      length: 128
+      column: email

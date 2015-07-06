@@ -1,0 +1,12 @@
+services:
+
+  mpwar.user.infrastructure.user_repository:
+    alias: mpwar.user.infrastructure.user_repository.mysql
+
+  mpwar.user.infrastructure.user_repository.in_memory:
+    class: MPWAR\Module\User\Infrastructure\Persistence\UserRepositoryInMemory
+
+  mpwar.user.infrastructure.user_repository.mysql:
+    class: MPWAR\Module\User\Infrastructure\Persistence\UserRepositoryInMySQL
+    arguments:
+      - @doctrine.orm.entity_manager

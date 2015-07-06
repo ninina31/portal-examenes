@@ -1,18 +1,19 @@
-MPWAR\Module\QuestionType\Contract\Response\QuestionTypeResponse:
-  exclusion_policy: ALL
-  properties:
-    id:
-      type: string
-    description:
-      type: string
-    autocorrect:
-      type: boolean
-    registrationDate:
-      type: DateTime
-  relations:
-    -
-      rel: self
-      href:
-        route: question_type_get
-        parameters: null
-        absolute: true
+# MPWAR\Module\QuestionType\Contract\Response\QuestionTypeResponse:
+#   exclusion_policy: ALL
+#   properties:
+#     id:
+#       type: string
+#     description:
+#       type: string
+#     autocorrect:
+#       type: boolean
+#     registrationDate:
+#       type: DateTime
+#   relations:
+#     -
+#       rel: self
+#       href:
+#         route: question_get
+#         parameters:
+#           questionTypeId: expr(object.id())
+#         absolute: true
