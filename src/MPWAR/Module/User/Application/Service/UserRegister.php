@@ -3,11 +3,8 @@
 namespace MPWAR\Module\User\Application\Service;
 
 use iter;
-use MPWAR\Module\User\Contract\Exception\UserNotValidException;
+use MPWAR\Module\User\Contract\Exception\UserAlreadyExistsException;
 use MPWAR\Module\User\Domain\User;
-use MPWAR\Module\User\Domain\UserId;
-use MPWAR\Module\User\Domain\UserName;
-use MPWAR\Module\User\Domain\UserLastName;
 use MPWAR\Module\User\Domain\UserEmail;
 use MPWAR\Module\User\Domain\UserPassword;
 use MPWAR\Module\User\Domain\UserRepository;
@@ -25,25 +22,25 @@ final class UserRegister
         $this->eventBus   = $eventBus;
     }
 
-    public function __invoke(UserId $id, UserName $name, UserLastName $lastname, UserEmail $email, UserPassword $password)
+    public function __invoke(UserEmail $email, UserPassword $password)
     {
-        // $this->guardQuestionParameters($description, $autocorrect, $exam_id);
+        $this->guardQuestionParameters($email);
 
-        $user = User::register($id, $name, $lastname, $email, $password);
+        $user = User::register($email, $password);
 
         $this->repository->add($user);
 
         $this->publishDomainEvents($user);
     }
 
-    // private function guardQuestionParameters(QuestionDescription $description, User $autocorrect, QuestionExamId $exam_id)
-    // {
-    //     $user = $this->repository->search($id);
+    private function guardQuestionParameters(UserEmail $email)
+    {
+        $user = $this->repository->search($email);
 
-    //     if (null !== $user) {
-    //         throw new QuestionNotValidException($id);
-    //     }
-    // }
+        if (null !== $user) {
+            throw new UserAlreadyExistsException($email);
+        }
+    }
 
     private function publishDomainEvents(User $user)
     {

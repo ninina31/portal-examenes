@@ -11,7 +11,6 @@ final class UserPassword
     public function __construct($value)
     {
         $this->guard($value);
-        
         $this->value = $value;
     }
 
@@ -20,9 +19,14 @@ final class UserPassword
         return $this->value;
     }
 
+    public function __toString()
+    {
+        return $this->value();
+    }
+
     private function guard($value)
     {
-        if (empty($value)) {
+        if (empty($value) || strlen($value) < 8) {
             throw new UserNotValidException($value);
         }
     }

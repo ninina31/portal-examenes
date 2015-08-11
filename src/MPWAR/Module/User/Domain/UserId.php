@@ -26,7 +26,7 @@ final class UserId
 
     private function guard($value)
     {
-        if (empty($value) || !is_numeric($value)) {
+        if (empty($value)) {
             throw new UserNotValidException($value);
         }
     }

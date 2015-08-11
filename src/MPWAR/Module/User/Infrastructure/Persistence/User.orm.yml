@@ -11,12 +11,6 @@ MPWAR\Module\User\Domain\User:
     id:
       class: MPWAR\Module\User\Domain\UserId
       columnPrefix: false
-    name:
-      class: MPWAR\Module\User\Domain\UserName
-      columnPrefix: false
-    lastname:
-      class: MPWAR\Module\User\Domain\UserLastName
-      columnPrefix: false
     email:
       class: MPWAR\Module\User\Domain\UserEmail
       columnPrefix: false

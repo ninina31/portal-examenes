@@ -9,3 +9,18 @@ services:
     class: MPWAR\Api\Controller\Question\QuestionPostController
     arguments:
       - @command_bus
+
+  mpwar.controller.questiontype.get:
+    class: MPWAR\Api\Controller\QuestionType\QuestionTypeGetController
+    arguments:
+      - @mysql
+
+  mpwar.controller.questiontype.post:
+    class: MPWAR\Api\Controller\QuestionType\QuestionTypePostController
+    arguments:
+      - @command_bus
+
+  mpwar.controller.user.post:
+    class: MPWAR\Api\Controller\User\UserPostController
+    arguments:
+      - @command_bus

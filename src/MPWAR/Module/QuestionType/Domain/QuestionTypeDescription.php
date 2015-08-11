@@ -3,6 +3,7 @@
 namespace MPWAR\Module\QuestionType\Domain;
 
 use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
+use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeValueEmptyException;
 
 final class QuestionTypeDescription
 {
@@ -47,6 +48,10 @@ final class QuestionTypeDescription
 
     private function guard($value)
     {
+        if (empty($value)) {
+            throw new QuestionTypeValueEmptyException($value);
+        }
+
         if (!in_array($value, self::$allowed)) {
             throw new QuestionTypeNotValidException($value);
         }

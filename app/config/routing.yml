@@ -7,3 +7,23 @@ question_post:
   path:     /insert_question
   defaults: { _controller: mpwar.controller.question.post:__invoke }
   methods:  [POST, GET]
+
+question_type_get:
+  path:     /question_types
+  defaults: { _controller: mpwar.controller.questiontype.get:__invoke }
+  methods:  [GET]
+
+question_type_post:
+  path:     /insert_question_type
+  defaults: { _controller: mpwar.controller.questiontype.post:__invoke }
+  methods:  [POST]
+
+question_insert:
+  path:     /insert
+  defaults: { _controller: mpwar.controller.question.post:getQuestionForm }
+  methods:  [GET]
+
+user_post:
+  path:     /user/create
+  defaults: { _controller: mpwar.controller.user.post:__invoke }
+  methods:  [POST, GET]

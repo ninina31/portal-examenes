@@ -1,6 +1,6 @@
 <?php
 
-namespace MPWAR\Api\Controller\Question;
+namespace MPWAR\Api\Controller\QuestionType;
 
 use FOS\RestBundle\View\View;
 use MPWAR\Module\QuestionType\Contract\Command\QuestionTypeRegistration;
@@ -8,9 +8,8 @@ use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-final class QuestionPostController extends Controller
+final class QuestionTypePostController
 {
     private $commandBus;
 
@@ -21,7 +20,7 @@ final class QuestionPostController extends Controller
 
     public function __invoke(Request $request)
     {
-        $id            = 2;
+        $id            = 1;
         $description   = 'abierta_nolimit';
         $autocorrect   = true;
 
@@ -41,22 +40,5 @@ final class QuestionPostController extends Controller
         }
 
         return $response;
-    }
-
-    public function getQuestionForm(Request $request)
-    {
-
-        $question_type  = new QuestionTypeRegistration(0, '', false);
-
-        $form = $this->createFormBuilder($question_type)
-            ->add('id', 'integer')
-            ->add('description', 'text')
-            ->add('autocorrect', 'checkbox')
-            ->add('save', 'submit', array('label' => 'Agregar tipo de pregunta'))
-            ->getForm();
-
-        return $this->render('questions/insert_question.html.twig', array(
-            'form' => $form->createView(),
-        ));
     }
 }

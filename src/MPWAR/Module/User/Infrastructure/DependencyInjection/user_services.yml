@@ -11,12 +11,12 @@ services:
 
   # Query Handlers
 
-  mpwar.user.query_handler.user_find:
-    class: MPWAR\Module\User\Application\QueryHandler\UserFindQueryHandler
-    arguments:
-      - @mpwar.user.service.user_finder
-    tags:
-      - { name: query_handler, handles: MPWAR\Module\User\Contract\Query\UserFind }
+  # mpwar.user.query_handler.user_find:
+  #   class: MPWAR\Module\User\Application\QueryHandler\UserFindQueryHandler
+  #   arguments:
+  #     - @mpwar.user.service.user_finder
+  #   tags:
+  #     - { name: query_handler, handles: MPWAR\Module\User\Contract\Query\UserFind }
 
 
   # Services
@@ -28,8 +28,8 @@ services:
       - @event_bus
     public: false
 
-  mpwar.user.service.user_finder:
-    class: MPWAR\Module\User\Application\Service\UserFinder
-    arguments:
-      - @mpwar.user.infrastructure.user_repository
-    public: false
+  # mpwar.user.service.user_finder:
+  #   class: MPWAR\Module\User\Application\Service\UserFinder
+  #   arguments:
+  #     - @mpwar.user.infrastructure.user_repository
+  #   public: false

@@ -20,8 +20,8 @@ final class UserRepositoryInMemory implements UserRepository
         $this->Users->set($user->id()->value(), $user);
     }
 
-    public function search()
+    public function search(UserEmail $email)
     {
-        return $this->users;
+        return $this->users->get($email->value());
     }
 }

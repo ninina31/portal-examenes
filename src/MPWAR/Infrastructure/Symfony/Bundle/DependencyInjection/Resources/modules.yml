@@ -1,2 +1,4 @@
 imports:
   - { resource: "../../../../../Module/QuestionType/Infrastructure/DependencyInjection/question_type_module.yml" }
+
+  - { resource: "../../../../../Module/User/Infrastructure/DependencyInjection/user_module.yml" }

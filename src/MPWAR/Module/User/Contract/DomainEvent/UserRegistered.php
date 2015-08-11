@@ -11,9 +11,8 @@ final class UserRegistered implements Event
     private $occurredOn;
     private $type;
     
-    public function __construct($aggregateId, DateTimeImmutable $occurredOn, $type)
+    public function __construct(DateTimeImmutable $occurredOn, $type)
     {
-        $this->aggregateId = $aggregateId;
         $this->occurredOn  = $occurredOn;
         $this->type        = $type;
     }

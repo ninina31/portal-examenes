@@ -4,6 +4,7 @@ namespace MPWAR\Module\User\Infrastructure\Persistence;
 
 use Doctrine\ORM\EntityManager;
 use MPWAR\Module\User\Domain\User;
+use MPWAR\Module\User\Domain\UserEmail;
 use MPWAR\Module\User\Domain\UserRepository;
 
 final class UserRepositoryInMySQL implements UserRepository
@@ -21,9 +22,9 @@ final class UserRepositoryInMySQL implements UserRepository
         $this->entityManager->flush($user);
     }
 
-    public function search()
+    public function search(UserEmail $email)
     {
-        return $this->repository()->findAll();
+        return $this->repository()->findOneBy(array('email' => $email));
     }
 
     private function repository()

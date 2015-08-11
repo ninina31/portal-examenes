@@ -3,6 +3,7 @@
 namespace MPWAR\Module\QuestionType\Domain;
 
 use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
+use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeValueEmptyException;
 
 final class QuestionTypeId
 {
@@ -26,8 +27,6 @@ final class QuestionTypeId
 
     private function guard($value)
     {
-        if (empty($value) || !is_numeric($value)) {
-            throw new QuestionTypeNotValidException($value);
-        }
+        return true;
     }
 }

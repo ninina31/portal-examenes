@@ -3,6 +3,7 @@
 namespace MPWAR\Module\QuestionType\Domain;
 
 use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeNotValidException;
+use MPWAR\Module\QuestionType\Contract\Exception\QuestionTypeValueEmptyException;
 
 final class QuestionTypeAutocorrect
 {
@@ -22,7 +23,7 @@ final class QuestionTypeAutocorrect
 
     private function guard($value)
     {
-        if (empty($value) || !is_bool($value)) {
+        if (!is_bool($value)) {
             throw new QuestionTypeNotValidException($value);
         }
     }

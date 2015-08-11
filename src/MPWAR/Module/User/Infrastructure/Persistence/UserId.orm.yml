@@ -4,3 +4,5 @@ MPWAR\Module\User\Domain\UserId:
     value:
       type: integer
       column: id
+      generator:
+        strategy: AUTO

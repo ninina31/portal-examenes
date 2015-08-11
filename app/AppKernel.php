@@ -1,10 +1,8 @@
 <?php
 
-use Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle;
 use Bazinga\Bundle\RestExtraBundle\BazingaRestExtraBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use FOS\RestBundle\FOSRestBundle;
-use FOS\UserBundle\FOSUserBundle;
 use Hautelook\TemplatedUriBundle\HautelookTemplatedUriBundle;
 use JMS\SerializerBundle\JMSSerializerBundle;
 use MPWAR\Infrastructure\Symfony\Bundle\MPWARBundle;
@@ -35,10 +33,8 @@ class AppKernel extends Kernel
 
             new FOSRestBundle(),
             new JMSSerializerBundle(),
-            new BazingaHateoasBundle(),
             new HautelookTemplatedUriBundle(),
             new BazingaRestExtraBundle(),
-            new FOSUserBundle(),
 
             new MPWARBundle(),
             new SimpleBusCommandBusBundle(),

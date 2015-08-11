@@ -12,7 +12,9 @@ interface UserRepository
     public function add(User $user);
 
     /**
-     * @return Array|null
+     * @param UserEmail $email
+     *
+     * @return User|null
      */
-    public function search();
+    public function search(UserEmail $email);
 }

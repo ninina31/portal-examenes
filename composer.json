@@ -21,6 +21,7 @@
         "twig/extensions": "1.0.*",
         "sensio/generator-bundle": "2.3.*",
         "symfony/icu": "1.0.*",
+        "symfony/form": "2.7.3",
 
         "incenteev/composer-parameter-handler": "~2.1",
 
@@ -33,7 +34,6 @@
 
         "friendsofsymfony/rest-bundle": "1.4.*",
         "jms/serializer-bundle": "0.13.*@dev",
-        "willdurand/hateoas-bundle": "1.0.*@dev",
         "hautelook/templated-uri-bundle": "~2.0",
         "willdurand/rest-extra-bundle": "~1.0",
 
@@ -41,8 +41,7 @@
 
         "rhumsaa/uuid": "~2.8",
         "igorw/compose": "~1.0",
-        "nikic/iter": "~1.1",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "nikic/iter": "~1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.5",
