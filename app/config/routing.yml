@@ -27,3 +27,13 @@ user_post:
   path:     /user/create
   defaults: { _controller: mpwar.controller.user.post:__invoke }
   methods:  [POST, GET]
+
+exam_get:
+  path:     /exam/{idExam}
+  defaults: { _controller: mpwar.controller.exam.get:__invoke }
+  methods:  [GET]
+
+exam_post:
+  path:     /insert_exam
+  defaults: { _controller: mpwar.controller.exam.post:__invoke }
+  methods:  [POST, GET]

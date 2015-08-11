@@ -51,6 +51,11 @@ doctrine:
                   dir: %kernel.root_dir%/../src/MPWAR/Module/User/Infrastructure/Persistence
                   prefix: MPWAR\Module\User\Domain
                   is_bundle: false
+                exam:
+                  type: yml
+                  dir: %kernel.root_dir%/../src/MPWAR/Module/Exam/Infrastructure/Persistence
+                  prefix: MPWAR\Module\Exam\Domain
+                  is_bundle: false
 
 sensio_framework_extra:
     view: { annotations: false }

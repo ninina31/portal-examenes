@@ -24,3 +24,13 @@ services:
     class: MPWAR\Api\Controller\User\UserPostController
     arguments:
       - @command_bus
+
+  mpwar.controller.exam.get:
+    class: MPWAR\Api\Controller\Exam\ExamGetController
+    arguments:
+      - @mysql
+
+  mpwar.controller.exam.post:
+    class: MPWAR\Api\Controller\Exam\ExamPostController
+    arguments:
+      - @command_bus
